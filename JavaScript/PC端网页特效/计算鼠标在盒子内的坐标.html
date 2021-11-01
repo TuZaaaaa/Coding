@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算鼠标在盒子内的坐标</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            margin: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: #ffc0cb;
+        }
+
+        .message {
+            margin: 100px;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load',function() {
+            var box = document.querySelector('.box')
+            var message = document.querySelector('.message')
+            box.addEventListener('mousemove',function(e) {
+                // 获取鼠标相对于视口的坐标
+                // var x = event.pageX
+                // var y = event.pageY
+                //获取元素相对于 body 的距离
+                // var ol = box.offsetLeft
+                // var ot = box.offsetTop
+                //获取鼠标 相对于盒子的坐标
+                var x = event.pageX - this.offsetLeft 
+                var y = event.pageY - this.offsetTop
+
+                message.innerHTML = 'x = ' + x + ', y = ' + y
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="box"></div>
+    <span class="message">x = 0, y = 0</span>
+</body>
+</html>
