@@ -40,5 +40,3 @@ Tiling Extension
 ## grub theme
 > kde Grub Themes -> Grub-theme-vimix
 > sudo sh install.sh
-
-test change.
