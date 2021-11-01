@@ -1,0 +1,24 @@
+# Use powerline
+USE_POWERLINE="true"
+# Source manjaro-zsh-configuration
+if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
+  source /usr/share/zsh/manjaro-zsh-config
+fi
+# Use manjaro zsh prompt
+if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
+  source /usr/share/zsh/manjaro-zsh-prompt
+fi
+ZSH_THEME="robbyrussell"
+
+# proxy
+export ALL_PROXY=http://127.0.0.1:8889
+
+# default editor
+export EDITOR=/usr/bin/vim
+
+# This causes pasted URLs to be automatically quoted, without needing to disable globbing.
+autoload -Uz bracketed-paste-magic
+zle -N bracketed-paste bracketed-paste-magic
+
+autoload -Uz url-quote-magic
+zle -N self-insert url-quote-magic 
