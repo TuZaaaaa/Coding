@@ -36,15 +36,16 @@
 - 如果你的头文件里有结构的声明，很难这个头文件不会在一个编译单元被 `#include` 多次
 - 所以需要标准头文件结构
 ```c
-#ifndef _LIST_HEAD_
-#define _LIST_HEAD_
+    #ifndef _LIST_HEAD_
+    #define _LIST_HEAD_
 
-#include "node.h"
+    #include "node.h"
 
-typedef struct _list {
-    Node* head;
-    Node* tail;
-} List;
+    typedef struct _list {
+        Node* head;
+        Node* tail;
+    } List;
 
-#endif
+    #endif
 ```
+- 运用条件编译和宏，保证这个头文件在一个编译单元只会被 `#include` 一次
