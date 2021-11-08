@@ -62,13 +62,13 @@ offset 翻译过来就是偏移量，我们使用 offset 系列相关属性可�
     </style>
     <script>
         window.onload = function () {
-            let msg = document.getElementById('msg');
-            let box = document.getElementById('box');
+            let msg = document.getElementById('msg')
+            let box = document.getElementById('box')
             box.addEventListener('mousemove', function(event) {
-                event = event || window.event;
-                let x = event.pageX - this.offsetLeft;
-                let y = event.pageY - this.offsetTop;
-                msg.innerHTML = "(" + x + ", " + y + ")";
+                event = event || window.event
+                let x = event.pageX - this.offsetLeft
+                let y = event.pageY - this.offsetTop
+                msg.innerHTML = '(' + x + ', ' + y + ')'
             })
         }
     </script>
@@ -101,29 +101,28 @@ offset 翻译过来就是偏移量，我们使用 offset 系列相关属性可�
     </style>
     <script>
         window.onload = function() {
-            let box = document.querySelector('#box');
+            let box = document.querySelector('#box')
             // 为 box 添加鼠标按下事件监听
             box.addEventListener('mousedown', function(event) {
-                event = event || window.event;
+                event = event || window.event
                 // 获取鼠标相对于 box 的坐标
-                let x = event.pageX - box.offsetLeft;
-                let y = event.pageY - box.offsetTop;
+                let x = event.pageX - box.offsetLeft
+                let y = event.pageY - box.offsetTop
 
                 // 为 document 添加鼠标移动事件监听
-                document.addEventListener('mousemove', move);
+                document.addEventListener('mousemove', move)
 
                 function move(event) {
-                    event = event || window.event;
-                    box.style.left = event.pageX - x + "px";
-                    box.style.top = event.pageY - y + "px";
+                    event = event || window.event
+                    box.style.left = event.pageX - x + 'px'
+                    box.style.top = event.pageY - y + 'px'
                 }
 
                 document.addEventListener('mouseup', function() {
-                    document.removeEventListener('mousemove', move);
+                    document.removeEventListener('mousemove', move)
                 })
             })
         }
-
     </script>
 </head>
 <body>
