@@ -1,6 +1,6 @@
 # Q & A
 - 不支持发行版本 5
-- jdk9 依赖问题
+> jdk9 依赖问题
 pom.xml:
 ```xml
     <properties>
