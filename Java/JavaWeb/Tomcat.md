@@ -77,8 +77,6 @@ JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程
 -->
 ```
 
-
-
 ### 手托 html 页面到浏览器和在浏览器中输入 http://ip:端 口号/工程名/访问的区别
 ![image-20210728161731571](D:\Coding\Java\JavaWeb\WebImage\TomcatImgae\1.png)
 ![image-20210728161841557](D:\Coding\Java\JavaWeb\WebImage\TomcatImgae\2.png)
@@ -93,6 +91,11 @@ JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程
 
 > Java Project > WebProject | Add FrameWork Support > Web Application
 
-
 ## 控制台输出中文乱码
 VM options: -Dfile.encoding=UTF-8
+
+## 浏览器中打开 jsp 文件 快捷键
+> 删掉 web.xml 一行代码
+```xml
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+```
