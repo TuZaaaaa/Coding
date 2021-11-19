@@ -618,3 +618,9 @@ web.xml 中的配置：
 
 9. **exception 对象**
    1.  jsp 页面中使用 exception，需要 page 指令中包含 isErrorPage="true"
+
+## jsp 引入 bootstrap 样式的玄学问题
+去掉这一行
+```
+<!DOCTYPE html>
+```
