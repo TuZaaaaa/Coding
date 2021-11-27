@@ -99,3 +99,9 @@ VM options: -Dfile.encoding=UTF-8
 ```xml
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 ```
+
+## tomcat 运行 JavaWeb 项目端口号被占用
+```
+netstat -ano | findstr 8080
+taskkill /f /pid ...
+```
