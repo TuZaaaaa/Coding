@@ -34,6 +34,49 @@ cvu_prereq.xml
     </OPERATING_SYSTEM>
 ```
 
+### ORA-00119: invalid specification ORA-00132: syntax error
+https://stackoverflow.com/questions/28765999/ora-00119-invalid-specification-ora-00132-syntax-error
+```cmd
+    C:\Users\Hp>sqlplus SYSTEM as SYSDBA   
+    SQL*Plus: Release 11.2.0.1.0 Production on Wed Aug 3 12:28:32 2016    
+    Copyright (c) 1982, 2010, Oracle.  All rights reserved.    
+    Enter password:    
+    Connected to an idle instance.    
+    SQL> startup  
+    ORA-00119: invalid specification for system parameter LOCAL_LISTENER    
+    ORA-00132: syntax error or unresolved network name 'LISTENER_ORCL'    
+    SQL> create pfile from spfile;    
+    File created.    
+    **************************    
+    Now open the PFILE (INIT%ORACLE_SID%.ORA) from %ORACLE_HOME%\database
+    Search for string local_listener='LISTENER_ORCL' and remove it and save the file.     
+    **************************    
+    SQL> startup nomount pfile='C:\app\Hp\product\11.2.0\dbhome_1\database\INITorcl.ORA'    
+    ORACLE instance started.    
+    Total System Global Area 1686925312 bytes
+    Fixed Size                  2176368 bytes
+    Variable Size            1291848336 bytes
+    Database Buffers          385875968 bytes
+    Redo Buffers                7024640 bytes    
+    SQL> create spfile from pfile;   
+    File created.    
+    SQL> startup    
+    ORA-01081: cannot start already-running ORACLE - shut it down first    
+    SQL> shutdown    
+    ORA-01507: database not mounted    
+
+    ORACLE instance shut down.    
+    SQL> startup    
+    ORACLE instance started.    
+    Total System Global Area 1686925312 bytes
+    Fixed Size                  2176368 bytes
+    Variable Size            1291848336 bytes
+    Database Buffers          385875968 bytes
+    Redo Buffers                7024640 bytes
+    Database mounted.
+    Database opened.    
+    SQL>
+```
 ## Uninstall
 作者：知我者
 链接：https://www.zhihu.com/question/373407650/answer/1118099909
