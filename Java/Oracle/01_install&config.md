@@ -108,4 +108,12 @@ https://stackoverflow.com/questions/28765999/ora-00119-invalid-specification-ora
 
 **最后删除：安装时的app根目录。例如在E:\app，就删除E盘中的app文件。**
 
-
+## 解锁 scott
+先查询一下目前数据库是否有 scott 用户
+```sql
+    select username,account_status from dba_users where username like '%SCOTT%';
+```
+如果是锁定状态那么解锁和设置密码 tiger
+```sql
+    alter user scott account unlock identified by tiger;
+```
