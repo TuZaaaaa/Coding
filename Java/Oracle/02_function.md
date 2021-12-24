@@ -238,3 +238,85 @@
 ```
 
 ## 分组函数
+> 分组函数作用于一组数据，并对一组数据返回一个值
+
+组函数类型：
+- AVG 
+- COUNT 
+- MAX 
+- MIN 
+- STDDEV
+- SUM
+
+### AVG & SUM
+> 可以对数值型数据使用 AVG 和 SUM 函数 
+```sql
+  SELECT AVG(salary), MAX(salary),
+                MIN(salary), SUM(salary)
+  FROM   employees
+  WHERE  job_id LIKE '%REP%';
+```
+
+### MIN & MAX
+> 可以对任意数据类型的数据使用 MIN 和 MAX 函数 
+```sql
+  SELECT MIN(hire_date), MAX(hire_date)
+  FROM	  employees;
+```
+
+### COUNT
+> COUNT(*) 返回表中记录总数，适用于任意数据类型 
+> 返回expr不为空的记录总数。
+
+```sql
+  SELECT COUNT(*)
+  FROM	  employees
+  WHERE  department_id = 50;
+```
+
+### 空值处理
+- 组函数忽略空值
+```sql
+  SELECT AVG(commission_pct)
+  FROM   employees;
+```
+- 组函数中使用 NVL 函数
+> NVL函数使分组函数无法忽略空值
+```sql
+  SELECT AVG(NVL(commission_pct, 0))
+  FROM   employees;
+```
+
+> DISTINCT 关键字
+> - COUNT(DISTINCT expr)返回 expr 非空且不重复的记录总数
+```sql
+  SELECT COUNT(DISTINCT department_id)
+  FROM employees;
+```
+
+## GROUP BY 子句
+> 在SELECT 列表中所有未包含在组函数中的列都应该包含在 GROUP BY 子句中 
+```sql
+  SELECT   department_id, AVG(salary)
+  FROM     employees
+  GROUP BY department_id ;
+```
+
+### 非法使用组函数
+- 所有包含于 SELECT 列表中，而未包含于组函数中的列都必须包含于 GROUP BY 子句中
+- 不能在 WHERE 子句中使用组函数
+- 可以在 HAVING 子句中使用组函数
+
+## HAVING 子句
+使用 HAVING 过滤分组:
+-	行已经被分组。
+-	使用了组函数。
+-	满足HAVING 子句中条件的分组将被显示
+```sql
+  SELECT	column, group_function
+  FROM		table
+  [WHERE	condition]
+  [GROUP BY	group_by_expression]
+  [HAVING	group_condition]
+  [ORDER BY	column];
+```
