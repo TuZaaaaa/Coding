@@ -171,3 +171,126 @@ WHERE  employees.department_id = departments.department_id;
 >     --左外连接、右外连接、满外连接
 
 ## 子查询
+语法：
+```sql
+    SELECT	select_list
+    FROM	table
+    WHERE	expr operator
+                (SELECT	select_list
+                    FROM		table);
+```
+- 子查询 (内查询) 在主查询之前一次执行完成
+- 子查询的结果被主查询(外查询)使用 
+
+注意事项：
+- 子查询要包含在括号内
+- 将子查询放在比较条件的右侧
+- 单行操作符对应单行子查询，多行操作符对应多行子查询
+
+### 单行子查询
+- 只返回一行
+- 使用单行比较操作符
+
+| 操作符 | 含义 |
+| --- | --- |
+| = | Equal to |
+| > | Greater than |
+| >= | Greater than or equal to |
+| < | Less than |
+| <= | Less than or equal to |
+| <> | Not equal to |
+
+题目：返回job_id与141号员工相同，salary比143号员工多的员工姓名，job_id 和工资
+```sql
+    SELECT last_name, job_id, salary
+    FROM   employees
+    WHERE  job_id =  
+                    (SELECT job_id
+                    FROM   employees
+                    WHERE  employee_id = 141)
+    AND    salary >
+                    (SELECT salary
+                    FROM   employees
+                    WHERE  employee_id = 143);
+```
+
+### 子查询中使用组函数
+题目：返回公司工资最少的员工的 last_name, job_id和 salary
+```sql
+    SELECT last_name, job_id, salary
+    FROM   employees
+    WHERE  salary = 
+                    (SELECT MIN(salary)
+                    FROM   employees);
+```
+
+### 子查询中的 HAVING 子句
+- 首先执行子查询
+- 向主查询中的 HAVING 子句返回结果
+
+题目：查询最低工资大于50号部门最低工资的部门id和其最低工资
+```sql
+    SELECT   department_id, MIN(salary)
+    FROM     employees
+    GROUP BY department_id
+    HAVING   MIN(salary) >
+                        (SELECT MIN(salary)
+                            FROM   employees
+                            WHERE  department_id = 50);
+```
+
+### 非法使用子查询
+```sql
+    SELECT employee_id, last_name
+    FROM   employees
+    WHERE  salary =
+                    (SELECT   MIN(salary)
+                    FROM     employees
+                    GROUP BY department_id);
+```
+多行子查询使用单行比较符
+
+### 多行子查询
+- 返回多行
+- 使用多行比较操作符
+
+| 操作符 | 含义 |
+| --- | --- |
+| **IN** | 等于列表中的**任意一个** |
+| ANY | 和子查询返回的**某一个**值比较 |
+| ALL | 和子查询返回的**所有**值比较 |
+
+#### 在多行子查询中使用 ANY 操作符
+题目：返回其它部门中比job_id为‘IT_PROG’部门任一工资低的员工的员
+              工号、姓名、job_id 以及salary
+```sql
+    SELECT employee_id, last_name, job_id, salary
+    FROM   employees
+    WHERE  salary < ANY
+                        (SELECT salary
+                        FROM   employees
+                        WHERE  job_id = 'IT_PROG')
+    AND    job_id <> 'IT_PROG';
+```
+
+#### 在多行子查询中使用 ALL 操作符
+题目：返回其它部门中比job_id为‘IT_PROG’部门所有工资都低的员工
+            的员工号、姓名、job_id 以及salary
+```sql
+    SELECT employee_id, last_name, job_id, salary
+    FROM   employees
+    WHERE  salary < ALL
+                        (SELECT salary
+                        FROM   employees
+                        WHERE  job_id = 'IT_PROG')
+    AND    job_id <> 'IT_PROG';
+```
+
+#### 子查询中的空值问题 
+```sql
+    SELECT emp.last_name
+    FROM   employees emp
+    WHERE  emp.employee_id NOT IN
+                                (SELECT mgr.manager_id
+                                FROM   employees mgr);
+```
