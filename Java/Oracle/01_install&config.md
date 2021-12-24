@@ -117,3 +117,10 @@ https://stackoverflow.com/questions/28765999/ora-00119-invalid-specification-ora
 ```sql
     alter user scott account unlock identified by tiger;
 ```
+
+## SQLPlus
+- 一种环境
+- oracle 特性
+- 关键字可以缩写
+- 命令不能改变数据库中的数据的值
+- 集中运行

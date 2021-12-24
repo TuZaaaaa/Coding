@@ -2,6 +2,26 @@
 - 多表查询
 - 子查询
 
+## select
+- 设置空值
+    - COMMSSION_PCT
+    - 包含空值的数学表达式的值都为空值
+
+- 起别名
+  - "" 对大小写敏感
+- 连接符
+```
+    select last_name || '`job_id is ' || job_id
+    from employees
+```
+- 字符和日期
+  - 字符和日期要包含在单引号中
+  - 字符大小写敏感，日期格式敏感
+  - 默认的日期格式是 DD-MON月-RR
+
+- 运算符
+  - 赋值：:=
+
 ## 多表查询
 > 笛卡尔集
 > 笛卡尔集会在下面条件下产生:
@@ -108,3 +128,46 @@ WHERE  employees.department_id = departments.department_id;
     FULL OUTER JOIN departments d
     ON   (e.department_id = d.department_id) ;
 ```
+
+> 总结：
+> SQL 语句的多表查询方式：
+> 
+> 例如：按照department_id查询employees(员工表)和departments(部门表)
+> 的信息。
+> 方式一(通用型):SELECT ... FROM ... WHERE
+> SELECT e.last_name,e.department_id,d.department_name
+> FROM employees e,departments d
+> where e.department_id = d.department_id
+> 
+> 方式二：SELECT ... FROM ... NATURAL JOIN ...
+> 有局限性：会自动连接两个表中相同的列(可能有多个:department_id和manager_id)
+> SELECT last_name,department_id,department_name
+> FROM employees
+> NATURAL JOIN departments
+> 
+> 方式三：SELECT ... JOIN ... USING ...
+> 有局限性：好于方式二，但若多表的连接列列名不同，此法不合适
+> SELECT last_name,department_id,department_name
+> FROM employees
+> JOIN departments
+> USING(department_id)
+> 
+> 方式四：SELECT ... FROM ... JOIN ... ON ...
+> 常用方式，较方式一，更易实现外联接(左、右、满)
+> SELECT last_name,e.department_id,department_name
+> FROM employees e
+> JOIN departments d
+> ON e.department_id = d.department_id
+> 
+> --内连接
+>     1）
+>     --等值连接
+>     --不等值连接
+>     2）
+>     --非自连接
+>     --自连接
+> 
+> --外连接
+>     --左外连接、右外连接、满外连接
+
+## 子查询

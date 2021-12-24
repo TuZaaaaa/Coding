@@ -1,30 +1,4 @@
-# sql
-## select
-- 设置空值
-    - COMMSSION_PCT
-    - 包含空值的数学表达式的值都为空值
-
-- 起别名
-  - "" 对大小写敏感
-- 连接符
-```
-    select last_name || '`job_id is ' || job_id
-    from employees
-```
-- 字符和日期
-  - 字符和日期要包含在单引号中
-  - 字符大小写敏感，日期格式敏感
-  - 默认的日期格式是 DD-MON月-RR
-
-- 运算符
-  - 赋值：:=
-
-## SQLPlus
-- 一种环境
-- oracle 特性
-- 关键字可以缩写
-- 命令不能改变数据库中的数据的值
-- 集中运行
+# function 
 
 ## 单行函数
 - 操作数据对象
@@ -262,3 +236,5 @@
   FROM   employees
   WHERE  manager_id IS NULL;
 ```
+
+## 分组函数
