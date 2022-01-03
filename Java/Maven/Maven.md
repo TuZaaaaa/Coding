@@ -1,6 +1,7 @@
 # Q & A
-- 不支持发行版本 5
+## 不支持发行版本 5
 > jdk9 依赖问题
+
 pom.xml:
 ```xml
     <properties>
@@ -9,7 +10,7 @@ pom.xml:
     </properties>
 ```
 
-- Class Not Found com.mysql.jdbc.Driver
+## Class Not Found com.mysql.jdbc.Driver
 1. 方案一
     > 在maven工程中引包的时候
     > 1. provided在war包的时候不会生成，但是在测试和编译的时候是通过的
@@ -22,3 +23,19 @@ pom.xml:
     > 1. 手动删除 Project Settings 里面的 Libraries 内容
     > 2. 在 Maven Project clean一下，删除之前编译过的文件
     > 3. Maven reload
+
+## 配置阿里云镜像
+.m2/settings.xml
+```xml
+    <settings>
+        <mirrors>
+            <mirror>
+                <id>aliyun</id>
+                <name>aliyun</name>
+                <mirrorOf>central</mirrorOf>
+                <!-- 国内推荐阿里云的Maven镜像 -->
+                <url>https://maven.aliyun.com/repository/central</url>
+            </mirror>
+        </mirrors>
+    </settings>
+```
