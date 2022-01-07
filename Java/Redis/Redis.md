@@ -117,7 +117,11 @@
 
 <u>**默认端口号：6379**</u>
 
-
+## Question
+### 关于ubuntu20安装redis make报错问题
+```
+  sudo apt-get install libc6-dev
+```
 
 # NoSQL数据库
 
