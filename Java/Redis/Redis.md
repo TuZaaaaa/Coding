@@ -119,8 +119,13 @@
 
 ## Question
 ### 关于ubuntu20安装redis make报错问题
-```
+```bash
   sudo apt-get install libc6-dev
+```
+### 无法杀掉 redis 进程问题
+> 在Linux上，如果开了redis的守护进程，kill -9和redis-cli shutdown 命令是无法杀掉 redis 进程的 ，杀掉就会重新启动一个新的进程 
+```bash
+  /etc/init.d/redis-server stop
 ```
 
 # NoSQL数据库
