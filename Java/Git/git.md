@@ -107,3 +107,44 @@
     git gc
     git fsck
 ```
+
+## Git Commit 日志风格指南
+### 地址
+https://open.leancloud.cn/git-commit-message/
+
+### 格式
+日志的所有内容都使用 ASCII 字符，不要用中文或者 emoji，这样最大化兼容性，也便于程序处理。总体结构如下：
+```txt
+    类型(可选的范畴): 简短描述
+
+    可选的详情
+
+    可选的注解
+```
+
+#### 示例
+```txt
+    feat(auth): increase length of new API key
+
+    the length is increased from 24 to 32 for new API keys
+
+    close #12
+```
+
+### 说明
+标题
+> 标题是每条 commit 日志的第一行，包含类型、范畴、描述三部分
+
+#### 以下为可用的 commit 类型及意义
+
+| 类型 | 说明 |
+| --- | --- |
+| feat | feature - 所有实现新功能、新行为的 commit 都属于这个类型 |
+| fix | 修正缺陷的 commit |
+| chore | 日常维护性的改动，例如 linter 的配置等 |
+| test | 与测试相关的改动 |
+| refactor | 不改变行为的对代码结构的改进 |
+| style | 对代码风格的修正（仅限缩进、空行一类的简单改动，对结构有影响的用 `refactor`）
+| cosm | cosmetic - 不改变行为的对界面的纯视觉上的改动 |
+| docs | 对文档的改进，包括对外文档和代码注释 |
+| build | 和构建流程、持续集成等有关的改动 |
