@@ -633,6 +633,41 @@ npm5以后才加入这个文件
 - path.join：拼接路径
 - path.isAbsolute：判断一个路径是否为绝对路径![image-20200315150610001](C:\Users\A\AppData\Roaming\Typora\typora-user-images\image-20200315150610001.png)
 
+# nrm
+> nrm的作用就是方便用户切换npm的镜像源地址，npm的原始镜像源地址是在国外，国内网络访问比较慢，因此国内的某些大佬机构将npm上的资源同步copy到自己的网站上，方便使用这些资源。 
+## command
+- 全局安装 nrm
+```shell
+npm i nrm - g
+```
+
+- 查看当前镜像列表
+```shell
+nrm ls
+```
+
+- 镜像源地址的切换
+```shell
+nrm use cnpm
+```
+
+- 添加自定义源
+```shell
+nrm add mynpmurladdr http://registry.npm.frp.trmap.cn/
+```
+
+- 删除源
+```shell
+nrm del mynpmurladdr
+```
+
+- 测试源的速度
+```shell
+nrm test cnpm
+```
+
+
+
 # Node中的其它成员(__dirname,__filename)
 
 在每个模块中，除了`require`,`exports`等模块相关的API之外，还有两个特殊的成员：
