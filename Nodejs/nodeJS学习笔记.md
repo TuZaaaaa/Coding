@@ -488,6 +488,13 @@ npm install --global npm
 - npm 命令 --help
   - 查看具体命令的使用帮助（npm uninstall --help）
 
+#### npm i 和 npm install 的区别
+- 用npm i安装的模块无法用npm uninstall删除，用npm uninstall i才卸载掉
+- npm i会帮助检测与当前node版本最匹配的npm包版本号，并匹配出来相互依赖的npm包应该提升的版本号
+- 部分npm包在当前node版本下无法使用，必须使用建议版本
+- 安装报错时intall肯定会出现npm-debug.log 文件，npm i 不一定
+
+
 ### 解决npm被墙问题
 
 npm存储包文件的服务器在国外，有时候会被墙，速度很慢，所以需要解决这个问题。
