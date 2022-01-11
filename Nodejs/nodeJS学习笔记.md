@@ -638,7 +638,7 @@ npm5以后才加入这个文件
 ## command
 - 全局安装 nrm
 ```shell
-npm i nrm - g
+npm i nrm -g
 ```
 
 - 查看当前镜像列表
