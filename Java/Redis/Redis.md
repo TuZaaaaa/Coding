@@ -128,14 +128,14 @@
   /etc/init.d/redis-server stop
 ```
 
-# 如何从 Ubuntu 卸载 Redis
-## apt-get 方式安装
+### 如何从 Ubuntu 卸载 Redis
+#### apt-get 方式安装
 您只需在终端中键入以下命令即可。这将删除 redis-server 软件包和不再需要的其他相关软件包（因为 --auto-remove 参数）。它还会删除 redis-server 的本地/配置文件（因为 purge 参数）
 ```bash
   sudo apt-get purge --auto-remove redis-server
 ```
 
-## makefile 编译安装
+#### makefile 编译安装
 
 1. 关闭已经启动的 Redis 服务，注意，你可能启动了多个实例，所以可能要逐个关闭，我这里的情况只有 redis_6379 在运行
 ```bash
@@ -178,6 +178,13 @@ sudo rm /var/run/redis_*
 ```
 
 8. 重启服务器
+
+### 密码设置和查看密码
+redis-cli:
+```shell
+  config set requirepass test123
+  config get requirepass
+```
 
 
 
