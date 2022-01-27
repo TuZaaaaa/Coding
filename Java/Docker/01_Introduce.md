@@ -27,3 +27,8 @@
   $ sudo systemctl daemon-reload
   $ sudo systemctl restart docker
 ```
+
+## Docker 提权
+```shell
+  sudo chmod 666 /var/run/docker.sock
+```
