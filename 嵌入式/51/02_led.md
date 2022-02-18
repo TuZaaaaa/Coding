@@ -19,6 +19,10 @@ Question
 > 
 > 然后保存TOOLS.INI。重启keil即可生效（务必要重启keil）
 
+
+- Create Hex File
+	> Options for target > Output
+
 ## 案例
 ### 点亮一个 LED
 Keil5:
@@ -38,3 +42,47 @@ void main()
 STC-ISP:
 - 芯片型号：STC89C52RC/LF52RC
 - 串口：USB-SERIAL CH340 (COM5)
+
+### LED 闪烁
+
+利用 STC-ISP 的**软件延时计算器**生成延时函数
+- 系统频率：12.000 MHz
+- 定时长度：500 毫秒
+- 8051 指令集：STC-Y1
+
+Keil5:
+```c
+#include <REG52.H>
+#include <INTRINS.H>
+
+void Delay500ms();
+
+void main()	
+{
+	while(1)
+	{
+		P2 = 0xFE;
+		Delay500ms();
+		P2 = 0xFF;
+		Delay500ms();
+	}
+}
+
+void Delay500ms()		//@12.000MHz
+{
+	unsigned char i, j, k;
+
+	_nop_();
+	i = 4;
+	j = 205;
+	k = 187;
+	do
+	{
+		do
+		{
+			while (--k);
+		} while (--j);
+	} while (--i);
+}
+```
+
