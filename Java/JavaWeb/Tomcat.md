@@ -94,7 +94,7 @@ JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程
 ## 控制台输出中文乱码
 VM options: -Dfile.encoding=UTF-8
 
-## 浏览器中打开 jsp 文件 快捷键
+## 浏览器中打开 jsp 文件
 > 删掉 web.xml 一行代码
 ```xml
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
