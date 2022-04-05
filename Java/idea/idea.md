@@ -21,6 +21,11 @@
     ctrl + shift + delete
 ```
 
+- 补全分号或大括号
+```c
+    ctrl + shift + enter
+```
+
 ## Plugin
 ### IdeaVim
 - gi
