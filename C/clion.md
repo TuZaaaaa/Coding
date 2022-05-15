@@ -16,3 +16,9 @@ set(SOURCE_FILES main.c)
 # add_executable 表示把变量 SOURCE_FILES 编译成一个名称为 demo1 的可执行文件。
 add_executable(demo1 ${SOURCE_FILES})
 ```
+
+## Show Chinese Character in the console
+- 将 file encodings 字符集全改成 utf8
+- 将控制台下面的字符集改成 GBK
+
+> 控制台下面的字符集是跟微软字符集交互，微软默认字符集是 GBK
