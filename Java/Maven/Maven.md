@@ -44,3 +44,27 @@ pom.xml:
 > 问题：自从 3.8.1 版本以后 Maven 不再支持 htpp 协议的仓库地址
 
 解决：降级 Maven 版本至 3.6.3
+
+## Maven is not working in Java 8 when Javadoc tags are incomplete 
+
+> mvn package 报错
+- 取消对 javaDoc 检查
+
+```xml
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-javadoc-plugin</artifactId>
+    <version>2.9</version>
+    <executions>
+        <execution>
+            <id>attach-javadocs</id>
+            <!-- <goals>
+                <goal>jar</goal>
+            </goals> -->
+            <configuration>
+              <failOnError>false</failOnError>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+```
