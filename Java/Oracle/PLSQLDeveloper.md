@@ -29,3 +29,5 @@ sso=SET serveroutput ON;
 ## 数据库导入
 - 需要具有 dba 权限
 
+## log on
+- 软件下方切换
