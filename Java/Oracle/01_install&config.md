@@ -124,3 +124,25 @@ https://stackoverflow.com/questions/28765999/ora-00119-invalid-specification-ora
 - 关键字可以缩写
 - 命令不能改变数据库中的数据的值
 - 集中运行
+
+## 用户的创建、授权
+
+- 登录管理员（具有创建用户的权限）
+```bash
+sqlplus / as sysdba;
+```
+
+### 用户创建
+```bash
+create user test identified by test;
+```
+
+### 用户授权
+```bash
+grant dba to test
+```
+
+### 查看所有用户（校验是否创建成功）
+```bash
+select username from dba_users; // 查看oracle所有用户
+```
