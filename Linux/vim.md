@@ -10,7 +10,7 @@
 
 ## ideaVim config
 
-```config
+```json
 set number relativenumber
 set idearefactormode=keep
 set ideajoin
@@ -58,4 +58,32 @@ nnoremap <leader><leader> <C-Tab>
 set NERDTree
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
+```
+
+## vscode vim config
+```json
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.nerdTree": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "l"],
+            "commands": [":bn"]
+        },
+        {
+            "before": ["<leader>", "h"],
+            "commands": [":bp"]
+        },
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.view.explorer"]
+        },
+        {
+            "before": ["<leader>", "z"],
+            "commands": ["workbench.action.toggleZenMode"]
+        }
+    ],
 ```
