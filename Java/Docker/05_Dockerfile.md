@@ -85,7 +85,7 @@
 3. 列出镜像变更历史
    - `docker history 镜像名`
 
-### CMD-ENTRYPOINT 命令案例
+### CMD&ENTRYPOINT 命令区别
 > 都是指定一个容器启动时要运行的指令
 - CMD
   - Dockerfile 中可以有多个 CMD 指令，但只有最后一个生效，CMD 会被 `docker run` 之后的参数替换

@@ -30,7 +30,7 @@
 - 搜索镜像
 `docker search redis`
 - 拉取镜像
-`docker pull mysql:3.2`
+`docker pull redis:3.2`
 - 查看镜像
 `docker images`
 - 启动镜像

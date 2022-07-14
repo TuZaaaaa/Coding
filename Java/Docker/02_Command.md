@@ -121,7 +121,7 @@
 - docker inspect 容器 ID
 
 ### 进入正在运行的容器并以命令行交互
-- docker exex -it 容器 ID bashShell
+- docker exec -it 容器 ID bash
 - docker attach 容器 ID
 > 上述两个区别
 > - attach
