@@ -148,3 +148,15 @@ https://open.leancloud.cn/git-commit-message/
 | cosm | cosmetic - 不改变行为的对界面的纯视觉上的改动 |
 | docs | 对文档的改进，包括对外文档和代码注释 |
 | build | 和构建流程、持续集成等有关的改动 |
+
+## Add SSH config
+ 
+### Generate ssh key
+```bash
+ssh-keygen -t rsa -C "your_email@youremail.com"
+```
+
+### Test Connecting Success
+```bash
+ssh -T git@github.com
+```
